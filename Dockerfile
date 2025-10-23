@@ -21,12 +21,12 @@ FROM eclipse-temurin:17-jre-focal
 WORKDIR /app
 
 # Copy file .jar đã được build từ giai đoạn 1
-# !!! QUAN TRỌNG: Thay đổi 'your-app-name.jar' !!!
-COPY --from=build /app/target/your-app-name.jar .
+# ĐÃ SỬA: Dùng đúng tên file .jar từ pom.xml
+COPY --from=build /app/target/lab5-cicd-0.0.1-SNAPSHOT.jar .
 
-# Mở port mà ứng dụng của bạn chạy (ví dụ: 8080)
+# Mở port mà ứng dụng của bạn chạy (8080 là port mặc định của Spring Boot)
 EXPOSE 8080
 
 # Lệnh để chạy ứng dụng
-# !!! QUAN TRỌNG: Thay đổi 'your-app-name.jar' !!!
-CMD ["java", "-jar", "your-app-name.jar"]
+# ĐÃ SỬA: Dùng đúng tên file .jar từ pom.xml
+CMD ["java", "-jar", "lab5-cicd-0.0.1-SNAPSHOT.jar"]
